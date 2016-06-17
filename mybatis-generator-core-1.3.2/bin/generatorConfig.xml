@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+<!-- 数据库驱动-->
+	<classPathEntry	location="mysql-connector-java-5.1.30-bin.jar"/>
+	<context id="DB2Tables"	targetRuntime="MyBatis3">
+		<plugin type="org.mybatis.generator.plugins.MapperXmlNamePlugin">
+		</plugin>
+		<plugin type="org.mybatis.generator.plugins.MapperClassNamePlugin">
+		</plugin>
+		<commentGenerator>
+			<property name="suppressDate" value="true"/>
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="true"/>
+		</commentGenerator>
+		<!--数据库链接URL，用户名、密码 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://182.92.224.214:3306/yimilan_yuwen" userId="root" password="yMl@123qwe">
+		</jdbcConnection>
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false"/>
+		</javaTypeResolver>
+		<!-- 生成模型的包名和位置-->
+		<javaModelGenerator targetPackage="com.yimilan.yuwen.domain.entity.api" targetProject="src">
+			<property name="enableSubPackages" value="true"/>
+			<property name="trimStrings" value="true"/>
+		</javaModelGenerator>
+		<!-- 生成映射文件的包名和位置 ,如果配置文件和dao 在同一个目录下，不用配置-->
+		<sqlMapGenerator targetPackage="com.yimilan.yuwen.dao.api" targetProject="resources">
+			<property name="enableSubPackages" value="true"/>
+		</sqlMapGenerator>
+		<!-- 生成DAO的包名和位置-->
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.yimilan.yuwen.dao.api" targetProject="src">
+			<property name="enableSubPackages" value="true"/>
+		</javaClientGenerator>
+		<!-- 要生成哪些表
+                <table tableName="app_version" domainObjectName="AppVersion" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        	<table tableName="base_enum" domainObjectName="Enum" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="base_enum_item" domainObjectName="EnumItem" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+                <table tableName="base_grade" domainObjectName="Grade" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+                <table tableName="base_menu" domainObjectName="Menu" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+                <table tableName="base_role" domainObjectName="Role" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+                <table tableName="base_role_menu" domainObjectName="RoleMenu" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="base_school" domainObjectName="School" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+                <table tableName="base_school_period" domainObjectName="SchoolPeriod" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+                <table tableName="base_student" domainObjectName="Student" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+                <table tableName="base_teacher" domainObjectName="Teacher" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+                <table tableName="base_user_role" domainObjectName="UserRole" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+                <table tableName="base_userinfo" domainObjectName="UserInfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+
+
+                <table tableName="biz_activity" domainObjectName="Activity" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+                <table tableName="biz_activity_book" domainObjectName="ActivityBook" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+                <table tableName="biz_attachment" domainObjectName="Attachment" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+                <table tableName="biz_book" domainObjectName="Book" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+                <table tableName="biz_cooperation_school" domainObjectName="CooperationSchool" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+                <table tableName="biz_feedback" domainObjectName="Feedback" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+                <table tableName="biz_order" domainObjectName="Order" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+                <table tableName="biz_order_pays" domainObjectName="OrderPays" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+-->		
+<!--<table tableName="biz_book_chapter" domainObjectName="BookChapter" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+                <table tableName="biz_erp_customer" domainObjectName="ErpCustomer" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>		
+		<table tableName="biz_activity_book_detail" domainObjectName="ActivityBookDetail" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>-->
+		
+                <table tableName="base_config" domainObjectName="BaseConfig" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+	</context>
+</generatorConfiguration>
